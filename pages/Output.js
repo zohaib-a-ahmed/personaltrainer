@@ -31,39 +31,13 @@ const Output = ({text}) => {
             }
           }
     }, [counter, isAnimating, output]);
-
-    async function generate(){
-        try {
-            const response = await fetch("/api/generate", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ scenario: text }),
-            });
       
-            const data = await response.json();
-            if (response.status !== 200) {
-              throw data.error || new Error(`Request failed with status ${response.status}`);
-            }
-      
-            setOutput(data.result)
-            setIsAnimating(true)
-          } catch(error) {
-            // Consider implementing your own error handling logic here
-            console.error(error);
-            alert(error.message);
-          }
-    }
-      
-
     return ( 
         <div>
             <div className="output">
                 <p className="typed">
                     {output.substring(0, counter)}
                 </p>
-                <button onClick = {() => generate()}> Generate </button>
             </div>
         </div>
      );
