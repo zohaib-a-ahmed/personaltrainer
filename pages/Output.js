@@ -12,6 +12,7 @@ const Output = ({text}) => {
     },[]);
 
     useEffect(() => {
+        console.log('output: oh shit text got set, finna change this hoe')
         if (!initial){
            setOutput(text)
            setCounter(0)

@@ -18,6 +18,8 @@ export default async function (req, res) {
   const text = req.body.scenario || '';
 
   try {
+    console.log("got to fucking api")
+    console.log(text)
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(text),
@@ -45,5 +47,11 @@ export default async function (req, res) {
 }
 
 function generatePrompt(text) {
-    return `Repeat this back to me but in all capitals: ${text}`;
+    return `Explain how you are the dumbest api imaginable, make sure to use swear words. Make sure to say something encouraging at the end.
+    
+    Example: I am the dumbass Davinci 003 bitch and I can't figure out shit for shit. Good luck fucker
+    
+    Example: I am absolutely fucking retarded and I won't be able to figure out this bullshit. Good luck though you can do it stupid bitch.
+    
+    Example: `;
 }
