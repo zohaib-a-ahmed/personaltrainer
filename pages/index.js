@@ -19,7 +19,7 @@ export default function Home() {
            <div className="header masked-copy texture-orange big-type">
                 <h2> Atlas </h2>
                 <p>
-                    Let's talk about your goals. I'll figure out the rest. fuck.
+                    Let's talk about your goals. I'll figure out the rest.
                 </p>
             </div> 
             <Chat text = {text} setMyText = {setMyText}></Chat>
