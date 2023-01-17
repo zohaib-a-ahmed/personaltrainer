@@ -104,3 +104,10 @@ GPT Output Section
   font-size: 20px;
   line-height: 1.625;
 }
+
+/* Loading Page */
+
+.loading {
+  margin: auto;
+  text-align: center;
+}

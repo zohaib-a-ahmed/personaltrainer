@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const Output = ({text}) => {
+const Output = ({text, setIsPending, isPending}) => {
     const [output, setOutput] = useState("Welcome to Atlas, your personal trainer A.I.! I am excited to work with you on your fitness journey. Whether you're looking to lose weight, gain muscle, or just improve your overall health and wellness, I am here to support you with tailored exercises, nutrition and recovery plans and tips. Let's get started by discussing your goals and how I can help you achieve them.");
     const [counter, setCounter] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -16,6 +16,7 @@ const Output = ({text}) => {
            setOutput(text)
            setCounter(0)
            setIsAnimating(true) 
+           setIsPending(false)
         }
         // eslint-disable-next-line
     },[text]);
@@ -35,9 +36,8 @@ const Output = ({text}) => {
     return ( 
         <div>
             <div className="output">
-                <p className="typed">
-                    {output.substring(0, counter)}
-                </p>
+                {isPending && <p className='loading'>Loading...</p>}
+                {!isPending && <p className='typed'>{output.substring(0, counter)}</p>}
             </div>
         </div>
      );
