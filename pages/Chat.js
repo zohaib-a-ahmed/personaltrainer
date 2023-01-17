@@ -1,11 +1,13 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 
-const Chat = ({text, setMyText}) => {
+const Chat = ({text, setMyText, setIsPending}) => {
 
     const [myValue, setMyValue] = useState('')
 
     async function generate(){
+        setIsPending(true)
+        setMyValue('')
         try {
             const response = await fetch("/api/generate", {
               method: "POST",

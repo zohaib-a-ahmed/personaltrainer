@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Home() {
 
   const [text, setMyText] = useState('')
+  const [isPending, setIsPending] = useState(false)
   
   return (
     <>
@@ -22,8 +23,8 @@ export default function Home() {
                     Let's talk about your goals. I'll figure out the rest.
                 </p>
             </div> 
-            <Chat text = {text} setMyText = {setMyText}></Chat>
-            <Output text = {text}></Output>
+            <Chat text = {text} setMyText = {setMyText} setIsPending = {setIsPending}></Chat>
+            <Output text = {text} isPending = {isPending} setIsPending = {setIsPending}></Output>
         </div>
     </>
   )
