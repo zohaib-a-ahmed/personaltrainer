@@ -1,12 +1,12 @@
 # trainerPT
 
-trainerPT is a web application built with Next.js that utilizes the GPT-3 API to provide personal training services.
+trainerPT is a web application built with Next.js and styled with MaterialUI that utilizes the GPT-3 API to provide personal training services.
 
 ## Dependencies
 
 - Next.js
 - GPT-3 API
-- [Other dependencies]
+- MaterialUI
 
 ## Getting Started
 
@@ -19,23 +19,17 @@ trainerPT is a web application built with Next.js that utilizes the GPT-3 API to
 
 The app is ready to be deployed to a production environment.
 
-## Built With
+## Important
 
-- Next.js
-- GPT-3 API
-- MaterialUI
+Be sure to create an OpenAI account and create a secret api key to place in your `.env` file (in place of `.env.example`) such that:
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+```
+`OPENAI_API_KEY=YOUR_OWN_API_KEY`
+```
 
 ## Authors
 
-- **Zohaib Ahmed** - _Initial work_ - [Github](https://github.com/zohaib-a-ahmed/)
+**Zohaib Ahmed** - **_Initial work_** - [Github](https://github.com/zohaib-a-ahmed/)
 
 ## License
 
@@ -43,6 +37,6 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENS
 
 ## Acknowledgments
 
-- [GPT-3 API](https://openai.com/) for providing the powerful language generation capabilities.
-- [Next.js](https://nextjs.org/) for making it easy to build performant React apps.
-- [MateialUI](https://mui.com/) for allowing reusable, reliable components.
+- [ ] [GPT-3 API](https://openai.com/) for providing the powerful language generation capabilities.
+- [ ] [Next.js](https://nextjs.org/) for making it easy to build performant React apps.
+- [ ] [MateialUI](https://mui.com/) for allowing reusable, reliable components.
