@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Chat from "./Chat";
 import Output from "./Output"
 import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
 

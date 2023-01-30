@@ -1,5 +1,6 @@
-import { Button, TextField } from "@mui/material";
 import { useState } from "react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const Chat = ({text, setMyText, setIsPending}) => {
 
@@ -31,9 +32,15 @@ const Chat = ({text, setMyText, setIsPending}) => {
 
     return ( 
         <div className = 'chat'>
-            <TextField multiline fullWidth id='input' color='secondary' variant="standard" value={myValue} 
-			onChange={(e) => setMyValue(e.target.value)} ></TextField>
-            <Button id = 'submit' color = 'secondary' onClick = {()=>generate(myValue)}> Submit </Button>
+            {false && <TextField multiline fullWidth id='input' color='secondary' variant="standard" value={myValue} 
+			onChange={(e) => setMyValue(e.target.value)} ></TextField>}
+        <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Example textarea</Form.Label>
+            <Form.Control as="textarea" rows={3} />
+          </Form.Group>
+        </Form>
+            <Button id = 'submit' variant = 'secondary' onClick = {()=>generate(myValue)}> Submit </Button>
         </div>
         );
 }
