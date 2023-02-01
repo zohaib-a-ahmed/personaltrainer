@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Homepage from '../components/Homepage.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function Home() {
