@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+/*
+Starting page
+*/
+
 .home {
   margin: auto;
   height: 100vh;
@@ -51,25 +55,41 @@ code {
 
 
 /*
-Text Input Bar
+Chat Page
 */
 
 .chat {
   margin: auto;
-  width: 90vh;
+  width: 100%;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  
 }
 
-#input {
+.chat h1{
+  margin: auto;
+  font-weight: 600;
+  font-size: 4em;
+  padding-top: 0.5em;
+  line-height: 1.25;
   margin: auto;
   text-align: center;
 }
 
-#submit {
+.chat p {
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.25;
   margin: auto;
   text-align: center;
-  display: block;
 }
 
+.chat h2 {
+  padding-top: 3em;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: 500;
+}
 /*
 GPT Output Section 
 */

@@ -40,8 +40,8 @@ const Homepage = () => {
           </Row>
           <Row>
             <div className="buttons">
-              <Button size = "md" variant = "dark" href = "/chat"> Get Started </Button>
-              <Button size = "md" variant = "outline-dark" href = "/about"> See How It Works </Button>
+              <Button size = "md" variant = "dark" href = "/chat" className='mx-2'> Get Started </Button>
+              <Button size = "md" variant = "outline-dark" href = "/about" className='mx-2'> See How It Works </Button>
             </div>
           </Row>
         </Container>

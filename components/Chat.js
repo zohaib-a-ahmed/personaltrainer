@@ -31,15 +31,15 @@ const Chat = ({text, setMyText, setIsPending}) => {
     }
 
     return ( 
-        <div className = 'chat'>
-            {false && <TextField multiline fullWidth id='input' color='secondary' variant="standard" value={myValue} 
-			onChange={(e) => setMyValue(e.target.value)} ></TextField>}
-        <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Control as="textarea" rows={6} />
-          </Form.Group>
-        </Form>
-            <Button id = 'submit' variant = 'secondary' onClick = {()=>generate(myValue)}> Submit </Button>
+        <div>
+          
+          {/* <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" value={myValue} 
+        onChange={(e) => setMyValue(e.target.value)}>
+              <Form.Control as="textarea" rows={6} />
+            </Form.Group>
+          </Form>
+          <Button id = 'submit' variant = 'outline-dark' onClick = {()=>console.log("Clicked", myValue)}> Submit </Button> */}
         </div>
         );
 }
