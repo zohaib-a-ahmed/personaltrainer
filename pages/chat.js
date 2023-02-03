@@ -18,7 +18,6 @@ const chat = () => {
     // Handle methods
     const handleClose = () => {
         if(key){
-            console.log(key); 
             setShowModal(false);
             // push key to session storage
         }

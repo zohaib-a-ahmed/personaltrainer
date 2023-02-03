@@ -1,6 +1,20 @@
+import { useState } from "react";
 import { Container, Form, Row, Button } from "react-bootstrap";
 
 const ChatPage = () => {
+
+    const [input, setInput] = useState('');
+
+    const handleInput = (e) => {
+        setInput(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        //send req to API
+        //place text into chat
+        console.log(input)
+        setInput('');
+    }
+
     return (            
     <Container>
         <div className="chat-container">
@@ -12,20 +26,18 @@ const ChatPage = () => {
             </Row>
             <Row>
                 <div className="screen">
-                    <div className="user-input">
-                        <div className="speech-bubble">
-                            Your message text goes here.
-                        </div>
-                    </div>
+
                 </div>
             </Row>
             <Row>
                 <div className="input">
                     <Form>
                         <Form.Group>
-                            <Form.Control placeholder="Ask anything."></Form.Control>
+                            <Form.Control 
+                            placeholder="e.g. How should I get started weightlifting? I want to start to lose fat. What are some good nutrition tips? What kinds of cardio are there?"
+                            value = {input} onChange = {handleInput}></Form.Control>
                         </Form.Group>
-                        <Button className = "m-2" variant="outline-dark">Submit</Button>
+                        <Button size = "md" className = "m-2" variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                 </div>
             </Row>

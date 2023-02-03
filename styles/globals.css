@@ -100,6 +100,7 @@ Chat Page + Input
 
 .screen {
   flex-grow: 1;
+  /* border: solid pink 2px; */
 }
 
 .input {
@@ -123,6 +124,7 @@ GPT Output Section
   width: fit-content;
   max-width: 80%;
   margin: 10px 0;
+  text-align: left;
 }
 
 .speech-bubble:before {
