@@ -127,7 +127,7 @@ GPT Output Section
   text-align: left;
 }
 
-.speech-bubble:before {
+/* .speech-bubble:before {
   content: "";
   position: absolute;
   left: 0;
@@ -139,7 +139,7 @@ GPT Output Section
   border-left: 0;
   margin-top: -10px;
   margin-left: -10px;
-}
+} */
 
 .user-input .speech-bubble {
   float: left;

@@ -4,16 +4,20 @@ import { Container, Form, Row, Button } from "react-bootstrap";
 const ChatPage = () => {
 
     const [input, setInput] = useState('');
+    const [messages, setMessages] = useState([]);
 
     const handleInput = (e) => {
         setInput(e.target.value)
     }
-    const handleSubmit = (e) => {
-        //send req to API
-        //place text into chat
-        console.log(input)
-        setInput('');
-    }
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          setInput('');
+          if(input != ''){
+            setMessages([...messages, { type: 'user', text: input }]);
+        }
+        }
+      };
 
     return (            
     <Container>
@@ -26,18 +30,29 @@ const ChatPage = () => {
             </Row>
             <Row>
                 <div className="screen">
-
+                    {messages.map((message, index) => (
+                        <Row key={index} className="message">
+                            <div className={message.type === 'user' ? 'user-input' : 'chatbot-response'}>
+                                <div className = "speech-bubble">
+                                    {message.text}
+                                </div>
+                            </div>
+                        </Row>
+                    ))}
                 </div>
             </Row>
             <Row>
                 <div className="input">
-                    <Form>
+                    <Form className = "m-4">
                         <Form.Group>
                             <Form.Control 
-                            placeholder="e.g. How should I get started weightlifting? I want to start to lose fat. What are some good nutrition tips? What kinds of cardio are there?"
-                            value = {input} onChange = {handleInput}></Form.Control>
+                            placeholder="Ask me anything"
+                            value = {input} onChange = {handleInput} onKeyDown={e => { handleKeyDown(e)}} ></Form.Control>
+                            <Form.Text className="text-muted">
+                                e.g. How should I get started weightlifting? 
+                                I want to start to lose fat. What are some good nutrition tips? 
+                                What kinds of cardio are there?</Form.Text>
                         </Form.Group>
-                        <Button size = "md" className = "m-2" variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                 </div>
             </Row>
