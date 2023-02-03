@@ -1,15 +1,32 @@
-import { Container, Row, Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import ChatPage from "@/components/ChatPage";
 
 const chat = () => {
 
-    //Place API Key into .env 
+    // initial render
+    useEffect(() => {
+        if(!key){ // change to pull key from session storage, if there is no key, then show modal.
+            setShowModal(true);
+        }
+    }, []);
 
+    // API Key State + Modal bool
+    const [key, setKey] = useState('');
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-        setShowModal(true);
-    }, []);
+    // Handle methods
+    const handleClose = () => {
+        if(key){
+            console.log(key); 
+            setShowModal(false);
+            // push key to session storage
+        }
+    }
+
+    const handleChange = (e) => {
+        setKey(e.target.value);
+    }
 
     return (
         <div className="chat">
@@ -20,31 +37,19 @@ const chat = () => {
                     <Modal.Body>
                         <Form>
                             <Form.Group className="mb-3">
-                                <Form.Control type = "email" placeholder="Enter your OpenAI API Key"></Form.Control>
+                                <Form.Control type = "password" placeholder="Enter your OpenAI API Key" value = {key} onChange = {handleChange}></Form.Control>
                                 <Form.Text className="text-muted">Your API Key will never be shared.</Form.Text>
                             </Form.Group>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
                         {/* Already have an account? Button to be added*/}
-                        <Button variant="dark">Submit</Button>
+                        <Button variant="dark" onClick={handleClose}>Submit</Button>
                         <Button variant="outline-dark" href = "/about">Don't have a key?</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
-            <Container fluid>
-                <Row>
-                    <div>
-                        <h1> Your Personal Trainer </h1>
-                        <p> Let's talk about your <strong>goals</strong>. I'll figure out the rest.</p>
-                    </div>
-                </Row>
-                <Row>
-                    <div>
-                        Hi
-                    </div>
-                </Row>
-            </Container>
+            <ChatPage></ChatPage>
         </div>
     );
 }

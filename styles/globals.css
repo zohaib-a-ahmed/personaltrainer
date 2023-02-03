@@ -55,7 +55,7 @@ Starting page
 
 
 /*
-Chat Page
+Chat Page + Input
 */
 
 .chat {
@@ -63,7 +63,6 @@ Chat Page
   width: 100%;
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  
 }
 
 .chat h1{
@@ -90,24 +89,74 @@ Chat Page
   font-size: 1.5em;
   font-weight: 500;
 }
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.screen {
+  flex-grow: 1;
+}
+
+.input {
+  width: 50%;
+  margin: auto; 
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 /*
 GPT Output Section 
 */
 
-.output {
-  margin: auto;
-  text-align: left;
-  text-indent: 2em;
-  padding: 2em;
-  font-weight: 400; 
-  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
-  font-size: 20px;
-  line-height: 1.625;
+.speech-bubble {
+  position: relative;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content;
+  max-width: 80%;
+  margin: 10px 0;
 }
 
-/* Loading Page */
+.speech-bubble:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #f2f2f2;
+  border-left: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+}
 
-.loading {
-  margin: auto;
-  text-align: center;
+.user-input .speech-bubble {
+  float: left;
+  margin-left: 10px;
+}
+
+.user-input .speech-bubble:before {
+  border-right-color: #f2f2f2;
+  left: auto;
+  right: 0;
+  margin-left: auto;
+  margin-right: -10px;
+}
+
+.chatbot-response .speech-bubble {
+  float: right;
+  margin-right: 10px;
+}
+
+.chatbot-response .speech-bubble:before {
+  border-right-color: #f2f2f2;
 }
