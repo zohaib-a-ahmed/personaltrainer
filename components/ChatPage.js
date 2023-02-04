@@ -1,10 +1,19 @@
-import { useState } from "react";
-import { Container, Form, Row, Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Container, Form, Row} from "react-bootstrap";
 
-const ChatPage = () => {
+const ChatPage = (props) => {
 
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+    const [initial, setInitial] = useState(true);
+
+    useEffect(() => {
+        console.log("triggered")
+        if(!props.showModal && initial){
+            generate("Hi. Who are you?");
+            setInitial(false);
+        }
+    }, [props.showModal, initial])
 
     const handleInput = (e) => {
         setInput(e.target.value)
@@ -14,10 +23,36 @@ const ChatPage = () => {
           event.preventDefault();
           setInput('');
           if(input != ''){
-            setMessages([...messages, { type: 'user', text: input }]);
-        }
+            console.log("messages before", messages)
+            setMessages(messages => [...messages, { type: 'user', text: input }]);
+            console.log("messages after user", messages)
+            generate(input);
+            console.log("messages after generate", messages)
+          }
         }
       };
+
+      async function generate(text){
+        try {
+            const response = await fetch("/api/generate", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ human: text }),
+            });
+      
+            const data = await response.json();
+            if (response.status !== 200) {
+              throw data.error || new Error(`Request failed with status ${response.status}`);
+            }
+            setMessages(messages => [...messages, { type: 'chatbot', text: data.result }])
+          } catch(error) {
+            // Consider implementing your own error handling logic here
+            console.error(error);
+            alert(error.message);
+          }
+    }  
 
     return (            
     <Container>
@@ -25,7 +60,7 @@ const ChatPage = () => {
             <Row>
                 <div>
                     <h1> Your Personal Trainer </h1>
-                    <p> Let's talk about your <strong>goals</strong>. I'll figure out the rest.</p>
+                    <p> Let&apos;s talk about your <strong>goals</strong>. I&apos;ll figure out the rest.</p>
                 </div>
             </Row>
             <Row>
@@ -49,9 +84,10 @@ const ChatPage = () => {
                             placeholder="Ask me anything"
                             value = {input} onChange = {handleInput} onKeyDown={e => { handleKeyDown(e)}} ></Form.Control>
                             <Form.Text className="text-muted">
-                                e.g. How should I get started weightlifting? 
-                                I want to start to lose fat. What are some good nutrition tips? 
-                                What kinds of cardio are there?</Form.Text>
+                                e.g. How can I lose fat?
+                                What are some lesser calories foods for a sweet tooth?
+                                What is proper form for a hack squat? 
+                                What other kinds of cardio are there besides walking/running?</Form.Text>
                         </Form.Group>
                     </Form>
                 </div>

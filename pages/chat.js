@@ -2,18 +2,18 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import ChatPage from "@/components/ChatPage";
 
-const chat = () => {
-
-    // initial render
-    useEffect(() => {
-        if(!key){ // change to pull key from session storage, if there is no key, then show modal.
-            setShowModal(true);
-        }
-    }, []);
+const Chat = () => {
 
     // API Key State + Modal bool
     const [key, setKey] = useState('');
     const [showModal, setShowModal] = useState(false);
+
+    // initial render
+    useEffect(() => {
+        if (!key) { //change to pull from session storage
+          setShowModal(true);
+        }
+      }, []);
 
     // Handle methods
     const handleClose = () => {
@@ -44,13 +44,13 @@ const chat = () => {
                     <Modal.Footer>
                         {/* Already have an account? Button to be added*/}
                         <Button variant="dark" onClick={handleClose}>Submit</Button>
-                        <Button variant="outline-dark" href = "/about">Don't have a key?</Button>
+                        <Button variant="outline-dark" href = "/about">Don&apos;t have a key?</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
-            <ChatPage></ChatPage>
+            <ChatPage showModal = {showModal}></ChatPage>
         </div>
     );
 }
  
-export default chat;
+export default Chat;

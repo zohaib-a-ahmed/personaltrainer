@@ -142,23 +142,26 @@ GPT Output Section
 } */
 
 .user-input .speech-bubble {
-  float: left;
+  float: right;
   margin-left: 10px;
 }
 
-.user-input .speech-bubble:before {
+/* .user-input .speech-bubble:before {
   border-right-color: #f2f2f2;
   left: auto;
   right: 0;
   margin-left: auto;
   margin-right: -10px;
-}
+} */
 
 .chatbot-response .speech-bubble {
-  float: right;
+  float: left;
+  background-color: #1982FC;
+  font-weight: 400;
+  color: white;
   margin-right: 10px;
 }
 
-.chatbot-response .speech-bubble:before {
+/* .chatbot-response .speech-bubble:before {
   border-right-color: #f2f2f2;
-}
+} */
