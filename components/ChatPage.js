@@ -54,8 +54,7 @@ const ChatPage = (props) => {
     <Container>
         <div className="chat-container">
             <Row>
-                <div>
-                    <h1> Your Personal Trainer </h1>
+                <div className="chat-title">
                     <p> Let&apos;s talk about your <strong>goals</strong>. I&apos;ll figure out the rest.</p>
                 </div>
             </Row>

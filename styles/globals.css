@@ -91,7 +91,7 @@ Chat Page + Input
 }
 
 .chat-container {
-  display: flex;
+  display: block;
   flex-direction: column;
   height: 100vh;
   width: 100%;
@@ -100,8 +100,20 @@ Chat Page + Input
 
 .screen {
   flex-grow: 1;
-  /* border: solid pink 2px; */
+  max-height: 75vh;
+  overflow-y: scroll;
+  border: solid pink 2px;
 }
+
+.chat-title {
+  padding: .5em;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
 
 .input {
   width: 50%;
