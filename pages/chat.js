@@ -1,6 +1,7 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import ChatPage from "@/components/ChatPage";
+import axios from "axios";
 
 const Chat = () => {
 
@@ -10,17 +11,23 @@ const Chat = () => {
 
     // initial render
     useEffect(() => {
-        if (!key) { //change to pull from session storage
+        //
+        if (!key) {
           setShowModal(true);
         }
       }, []);
 
     // Handle methods
-    const handleClose = () => {
-        if(key){
-            setShowModal(false);
-            // push key to session storage
+    const handleClose = async () => {
+        if (key) {
+          setShowModal(false);
+          //Find a way to send api key to backend
+          sendApiKey(key);
         }
+      };
+    
+    async function sendApiKey(apiKey) {
+        const res = await axios.post('/api/gpt3', { apiKey });
     }
 
     const handleChange = (e) => {
