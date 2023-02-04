@@ -8,8 +8,9 @@ const ChatPage = (props) => {
     const [initial, setInitial] = useState(true);
 
     useEffect(() => {
-        console.log("triggered")
+        // Double render in npm dev NOT in npm build + npm start
         if(!props.showModal && initial){
+            // Hello msg appear after api key modal
             generate("Hi. Who are you?");
             setInitial(false);
         }
@@ -23,11 +24,8 @@ const ChatPage = (props) => {
           event.preventDefault();
           setInput('');
           if(input != ''){
-            console.log("messages before", messages)
             setMessages(messages => [...messages, { type: 'user', text: input }]);
-            console.log("messages after user", messages)
             generate(input);
-            console.log("messages after generate", messages)
           }
         }
       };
