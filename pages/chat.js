@@ -12,20 +12,25 @@ const Chat = () => {
 
     // initial render
     useEffect(() => {
-        //
-        if (!key) {
-          setShowModal(true);
+        // pull from local storage. If key, send api otherwise show modal.
+        const storedApiKey = localStorage.getItem('apiKey');
+        if (storedApiKey) {
+        setKey(storedApiKey);
+        setInitial(true);
+        } else {
+        setShowModal(true);
         }
-      }, []);
+    }, []);
 
     // Handle methods
     const handleClose = async () => {
         if (key) {
-          setShowModal(false);
-          //Find a way to send api key to backend
-          sendApiKey(key);
+        setShowModal(false);
+        sendApiKey(key);
+        // store to local storage
+        localStorage.setItem('apiKey', key);
         }
-      };
+    };    
     
     async function sendApiKey(apiKey) {
         const res = await axios.post('/api/gpt3', { apiKey });
