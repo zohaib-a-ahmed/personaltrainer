@@ -8,6 +8,7 @@ const Chat = () => {
     // API Key State + Modal bool
     const [key, setKey] = useState('');
     const [showModal, setShowModal] = useState(false);
+    const [initial, setInitial] = useState(false);
 
     // initial render
     useEffect(() => {
@@ -28,6 +29,10 @@ const Chat = () => {
     
     async function sendApiKey(apiKey) {
         const res = await axios.post('/api/gpt3', { apiKey });
+        if(res.status === 200){
+            setInitial(true);
+        }
+        //else invalid key error
     }
 
     const handleChange = (e) => {
@@ -55,7 +60,7 @@ const Chat = () => {
                     </Modal.Footer>
                 </Modal>
             </div>
-            <ChatPage showModal = {showModal}></ChatPage>
+            <ChatPage showModal = {showModal} initial = {initial} setInitial = {setInitial}></ChatPage>
         </div>
     );
 }

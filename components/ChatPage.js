@@ -5,16 +5,14 @@ const ChatPage = (props) => {
 
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
-    const [initial, setInitial] = useState(true);
 
-    // useEffect(() => {
-    //     // Double render in npm dev NOT in npm build + npm start
-    //     if(!props.showModal && initial){
-    //         // Hello msg appear after api key modal
-    //         generate("Hi. Who are you?");
-    //         setInitial(false);
-    //     }
-    // }, [props.showModal, initial])
+    useEffect(() => {
+        // Double render in npm dev NOT in npm build + npm start
+        if(!props.showModal && props.initial){
+            generate("Hi. Who are you?")
+            props.setInitial(false);
+        }
+    }, [props.initial, props.showModal])
 
     const handleInput = (e) => {
         setInput(e.target.value)
