@@ -12,7 +12,7 @@ const Chat = () => {
 
     // initial render
     useEffect(() => {
-        // pull from local storage. If key, send api otherwise show modal.
+        // pull from session storage (account for page refresh). If key, send api otherwise show modal.
         const storedApiKey = sessionStorage.getItem('apiKey');
         if (storedApiKey) {
             console.log(storedApiKey);
@@ -29,7 +29,7 @@ const Chat = () => {
         if (key) {
         setShowModal(false);
         sendApiKey(key);
-        // store to local storage
+        // store to session storage
         sessionStorage.setItem('apiKey', key);
         }
     };    
