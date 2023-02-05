@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Form, Row} from "react-bootstrap";
 
 const ChatPage = (props) => {
 
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+    const chatScreenRef = useRef(null);
 
     useEffect(() => {
         // Double render in npm dev NOT in npm build + npm start
@@ -13,6 +14,10 @@ const ChatPage = (props) => {
             props.setInitial(false);
         }
     }, [props.initial, props.showModal])
+
+    useEffect(() => {
+        chatScreenRef.current.scrollTop = chatScreenRef.current.scrollHeight;
+    }, [messages]);
 
     const handleInput = (e) => {
         setInput(e.target.value)
@@ -59,7 +64,7 @@ const ChatPage = (props) => {
                 </div>
             </Row>
             <Row>
-                <div className="screen">
+                <div className="screen" ref = {chatScreenRef}>
                     {messages.map((message, index) => (
                         <Row key={index} className="message">
                             <div className={message.type === 'user' ? 'user-input' : 'chatbot-response'}>
