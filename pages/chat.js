@@ -21,7 +21,7 @@ const Chat = () => {
         setShowModal(true);
         }
     }, []);
-
+      
     // Handle methods
     const handleClose = async () => {
         if (key) {

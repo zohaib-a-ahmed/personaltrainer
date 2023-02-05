@@ -7,6 +7,7 @@ const ChatPage = (props) => {
     const [messages, setMessages] = useState([]);
     const chatScreenRef = useRef(null);
 
+    // initial render, hello msg
     useEffect(() => {
         // Double render in npm dev NOT in npm build + npm start
         if(!props.showModal && props.initial){
@@ -15,13 +16,17 @@ const ChatPage = (props) => {
         }
     }, [props.initial, props.showModal])
 
+    // Keep recent messages scrolled on
     useEffect(() => {
         chatScreenRef.current.scrollTop = chatScreenRef.current.scrollHeight;
     }, [messages]);
 
+    // Input handler
     const handleInput = (e) => {
         setInput(e.target.value)
     }
+
+    // Enter -> sends request
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
           event.preventDefault();
@@ -33,6 +38,7 @@ const ChatPage = (props) => {
         }
       };
 
+      //API request
       async function generate(text){
         try {
             const response = await fetch("/api/generate", {
