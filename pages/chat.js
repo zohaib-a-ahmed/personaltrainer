@@ -13,12 +13,14 @@ const Chat = () => {
     // initial render
     useEffect(() => {
         // pull from local storage. If key, send api otherwise show modal.
-        const storedApiKey = localStorage.getItem('apiKey');
+        const storedApiKey = sessionStorage.getItem('apiKey');
         if (storedApiKey) {
-        setKey(storedApiKey);
-        setInitial(true);
-        } else {
-        setShowModal(true);
+            console.log(storedApiKey);
+            setKey(storedApiKey);
+            setInitial(true);
+        } 
+        else {
+            setShowModal(true);
         }
     }, []);
       
@@ -28,7 +30,7 @@ const Chat = () => {
         setShowModal(false);
         sendApiKey(key);
         // store to local storage
-        localStorage.setItem('apiKey', key);
+        sessionStorage.setItem('apiKey', key);
         }
     };    
     
