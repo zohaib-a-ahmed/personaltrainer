@@ -176,3 +176,38 @@ GPT Output Section
 /* .chatbot-response .speech-bubble:before {
   border-right-color: #f2f2f2;
 } */
+
+
+/*
+About section
+*/
+
+.about {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  padding-top: 0.5em;
+  line-height: 1.25;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+}
+
+.about h2 {
+  font-size: 3em;
+}
+
+.about p {
+  padding-top: 1em;
+  font-size: 1.3em;
+  text-align: left;
+  text-overflow: wrap;
+  text-indent: 2em;
+}
+
+
+.center-image {
+  display: block;
+  margin: 0 auto;
+  border: solid black 2px;
+  border-radius: 10px;
+}
