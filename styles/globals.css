@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
 }
 
 code {
@@ -14,100 +12,167 @@ code {
     monospace;
 }
 
+/*
+Starting page
+*/
+
 .home {
   margin: auto;
   height: 100vh;
-  width: 60%;
   background-color: white;
-  border-radius: 10px;
-  border-left: 2px solid;
-  border-right: 2px solid;
-  border-left-color: #9D00FF;
-  border-right-color: #9D00FF;
+  text-align: center;
   }
 
-/*
-Header for homepage - Apple style font
-*/
-.header {
+.home h1 {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  font-size: 8em;
+  padding-top: 0.5em;
+  line-height: 1.25;
   margin: auto;
-  height: 20vh;
-  padding: 5vh;
   text-align: center;
 }
 
-.big-type { 
-  /* Copied almost wholesale from the Apple site CSS; changed the font-stack */
-  font-size: 64px;
-  line-height: 1.0625; /* The height Apple used to tighten up the spacing a bit. */
-  font-weight: 600; /* Nice, chunky, bold! */
-  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+.home span {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  line-height: 1.25;
+  margin: auto;
 }
 
-.masked-copy { 
-  /* This is it! Magic: */
-  -webkit-background-clip: text;
-  color: transparent !important;
-  
+.starting-msg {
+  margin: auto;
+  justify-content: center;
+  display: flex;
 }
 
-.masked-copy h2 { 
-
-  display: inline;
-  /* Get the font sizes and other features from those set on the parent */
-  font: inherit;
+.buttons {
+  padding: 2em;
+  width: 50%;
+  margin: auto;
 }
 
-.masked-copy p {
-  font-size: large;
-}
-
-.texture-orange {
-  /* Set the text color to a solid, in case our super cool effects don't work.  */
-  color: #e5895f;
-  
-  /* background-repeat: no-repeat; */
-  background-image: url(../public/purple.jpeg);
-}
 
 /*
-Text Input Bar
+Chat Page + Input
 */
 
 .chat {
   margin: auto;
-  width: 90vh;
+  width: 100%;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-#input {
+.chat h1{
+  margin: auto;
+  font-weight: 600;
+  font-size: 4em;
+  padding-top: 0.5em;
+  line-height: 1.25;
   margin: auto;
   text-align: center;
 }
 
-#submit {
+.chat p {
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.25;
   margin: auto;
   text-align: center;
+}
+
+.chat h2 {
+  padding-top: 3em;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.chat-container {
   display: block;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.screen {
+  flex-grow: 1;
+  max-height: 75vh;
+  overflow-y: scroll;
+}
+
+.chat-title {
+  padding: .5em;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+
+.input {
+  width: 50%;
+  margin: auto; 
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 /*
 GPT Output Section 
 */
 
-.output {
-  margin: auto;
+.speech-bubble {
+  position: relative;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content;
+  max-width: 80%;
+  margin: 10px 0;
   text-align: left;
-  text-indent: 2em;
-  padding: 2em;
-  font-weight: 400; 
-  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
-  font-size: 20px;
-  line-height: 1.625;
 }
 
-/* Loading Page */
+/* .speech-bubble:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #f2f2f2;
+  border-left: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+} */
 
-.loading {
-  margin: auto;
-  text-align: center;
+.user-input .speech-bubble {
+  float: right;
+  margin-left: 10px;
 }
+
+/* .user-input .speech-bubble:before {
+  border-right-color: #f2f2f2;
+  left: auto;
+  right: 0;
+  margin-left: auto;
+  margin-right: -10px;
+} */
+
+.chatbot-response .speech-bubble {
+  float: left;
+  background-color: #1982FC;
+  font-weight: 400;
+  color: white;
+  margin-right: 10px;
+}
+
+/* .chatbot-response .speech-bubble:before {
+  border-right-color: #f2f2f2;
+} */
