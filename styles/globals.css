@@ -102,6 +102,7 @@ Chat Page + Input
   flex-grow: 1;
   max-height: 75vh;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .chat-title {

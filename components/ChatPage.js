@@ -18,6 +18,11 @@ const ChatPage = (props) => {
 
     // Keep recent messages scrolled on
     useEffect(() => {
+        if (chatScreenRef.current.scrollHeight > chatScreenRef.current.clientHeight) {
+            chatScreenRef.current.style.overflowY = "scroll";
+        } else {
+            chatScreenRef.current.style.overflowY = "hidden";
+        }
         chatScreenRef.current.scrollTop = chatScreenRef.current.scrollHeight;
     }, [messages]);
 
