@@ -2,6 +2,10 @@
 
 trainerPT is a web application named Atlas, designed to enable people to reach their fitness goals with a conversational, ML personal trainer chatbot, powered by GPT-3. Built in Next.js, styled with Bootstrap along with Typed.js, for an elegant, efficient, and scalable interface.
 
+## Demo
+
+- Watch this [demo](https://www.youtube.com/watch?v=1CRWYyQpwRw)!
+
 ## Dependencies
 
 - Next.js
