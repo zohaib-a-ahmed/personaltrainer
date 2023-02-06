@@ -102,6 +102,7 @@ Chat Page + Input
   flex-grow: 1;
   max-height: 75vh;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .chat-title {
@@ -176,6 +177,24 @@ GPT Output Section
 /* .chatbot-response .speech-bubble:before {
   border-right-color: #f2f2f2;
 } */
+
+.message {
+  animation: fadeInLeft 1s;
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 
 
 /*

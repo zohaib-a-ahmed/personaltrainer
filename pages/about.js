@@ -18,7 +18,7 @@ const about = () => {
                 <Row>
                     <p>
                         In order to use <b>Atlas</b>, you will need an API key from OpenAI. If you don't already have an account,
-                        you will need to create one. 
+                        you will need to create one <a href="https://beta.openai.com/signup" target="_blank">here</a>.
                     </p>
                     <img src="login.png" alt="OpenAI Login" className="center-image" style={{width: "700px"}}/>
                 </Row>
